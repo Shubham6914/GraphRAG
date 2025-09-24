@@ -1,0 +1,41 @@
+status_id,status_name
+S1,Open
+S2,In Progress
+S3,In Review
+S4,Testing
+S5,Closed
+S6,Reopened
+S7,Blocked
+S8,On Hold
+S9,Resolved
+S10,Duplicate
+S11,WontFix
+S12,Open
+S13,In Progress
+S14,In Review
+S15,Closed
+S16,Testing
+S17,Resolved
+S18,Reopened
+S19,Blocked
+S20,Closed
+S21,Open
+S22,In Progress
+S23,In Review
+S24,Testing
+S25,Closed
+S26,Duplicate
+S27,Resolved
+S28,Blocked
+S29,On Hold
+S30,Open
+S31,In Progress
+S32,In Review
+S33,Testing
+S34,Closed
+S35,Open
+S36,In Progress
+S37,In Review
+S38,Testing
+S39,Closed
+S40,Resolved

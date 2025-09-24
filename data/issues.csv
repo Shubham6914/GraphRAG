@@ -1,0 +1,41 @@
+issue_id,title,priority,project_id
+I1,Login not working,High,P1
+I2,Checkout error,High,P2
+I3,Search slow,Medium,P2
+I4,Profile update bug,Low,P3
+I5,Payment failed,High,P5
+I6,Cloud upload crash,Critical,P6
+I7,Email not delivered,Medium,P7
+I8,Employee sync bug,Low,P8
+I9,Record mismatch,High,P9
+I10,Lesson loading issue,Medium,P10
+I11,Tracker crash,Critical,P11
+I12,Transaction timeout,High,P12
+I13,Feed not refreshing,Low,P13
+I14,Game lagging,High,P14
+I15,Drive sync error,Critical,P15
+I16,Chat disconnect,Medium,P16
+I17,Streaming freeze,High,P17
+I18,Plan export failed,Low,P18
+I19,Code merge conflict,High,P19
+I20,API docs missing,Medium,P20
+I21,Job posting bug,High,P21
+I22,Marketplace checkout error,Critical,P22
+I23,Video lagging,High,P23
+I24,News not updating,Medium,P24
+I25,Profile privacy issue,Low,P25
+I26,Payment retry bug,High,P26
+I27,Doctor connect issue,Critical,P27
+I28,Alert not triggering,High,P28
+I29,Course enrollment bug,Medium,P29
+I30,Trade mismatch,High,P30
+I31,Map loading slow,Medium,P31
+I32,Compute quota exceeded,High,P32
+I33,Mobile checkout error,Critical,P33
+I34,Farm data missing,High,P34
+I35,Home automation bug,Medium,P35
+I36,Cache issue,Low,P1
+I37,Profile picture not saving,Low,P2
+I38,Analytics not visible,High,P3
+I39,Password reset failure,High,P4
+I40,Notification delay,Medium,P5
