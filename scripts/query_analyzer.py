@@ -1,27 +1,28 @@
-
 """
 Accept user query (natural language).
 
 Build a prompt describing your Neo4j graph schema + relationships.
 
-Call OpenAI API to generate a Cypher query.
+Call OpenAI API (via Requesty router) to generate a Cypher query.
 
 Return the Cypher query string.
 """
+
 # query_analyzer.py
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
+# Load environment variables
 load_dotenv()
 
 api_key = os.getenv("REQUESTY_API_KEY")
 
+# Initialize client for Requesty router
 client = OpenAI(
     api_key=api_key,
-    base_url="https://router.requesty.ai/v1"  # Requesty.ai endpoint
+    base_url="https://router.requesty.ai/v1"
 )
-
 
 GRAPH_SCHEMA = """
 Graph Entities:
@@ -55,27 +56,33 @@ MATCH (c:Commit {commit_id:'C1'})<-[:MADE]-(u:User) RETURN u;
 
 def generate_cypher(user_question: str) -> str:
     """
-    Converts a natural language question to a precise Cypher query using OpenAI.
+    Converts a natural language question to a Cypher query using OpenAI via Requesty.
     """
     prompt = f"""
 You are an expert in Neo4j. Use the following schema and relationships to generate an exact Cypher query.
 Do NOT invent any entities or relationships. Use only the given labels and relationships.
-Return only the Cypher query, do NOT explain.
+Return only the Cypher query, no explanation.
 
 Graph Schema:
 {GRAPH_SCHEMA}
 
 User Question: "{user_question}"
 """
-    
+
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="openai/gpt-4o-mini",  # ✅ must use provider/model format
         messages=[
-            {"role":"system", "content":"You are a Neo4j expert assistant that converts questions into Cypher queries."},
-            {"role":"user", "content": prompt}
+            {"role": "system", "content": "You are a Neo4j expert assistant that converts questions into Cypher queries."},
+            {"role": "user", "content": prompt}
         ],
-        temperature=0
+        temperature=0,
+        max_tokens=500,
     )
 
+    # ✅ use dot notation instead of subscript
     cypher_query = response.choices[0].message.content.strip()
     return cypher_query
+
+# if __name__ == "__main__":
+#     q = "Show me all issues belonging to project P1"
+#     print("Generated Cypher:\n", generate_cypher(q))
